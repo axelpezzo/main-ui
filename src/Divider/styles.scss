@@ -1,0 +1,16 @@
+.divider {
+  border: none;
+
+  &.divider-hor{
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #000;
+  }
+
+  &.divider-ver{
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+    background-color: #000;
+  }
+}
