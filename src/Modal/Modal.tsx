@@ -1,16 +1,39 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
+import classNames from "classnames";
 
-import { IProps } from './types';
+import { IProps, IHeaderProps, IContentProps } from './types';
 
-import Close from "./close.svg";
 import "./styles.scss";
 
-const Modal: React.FC<IProps> = ({
+export const ModalHeader: React.FC<IHeaderProps> = ({ 
   children,
-  openLabel,
-  typeLabel,
-  title
+  classes,
+  styles,
+}) => {
+  const elementClasses = classNames('modal_header', classes);
+  return (
+    <div className={elementClasses} style={styles}>{children}</div>
+  )
+};
+
+export const ModalContent: React.FC<IContentProps> = ({ 
+  children,
+  classes,
+  styles,
+}) => {
+  const elementClasses = classNames('modal_content', classes);
+  return (
+    <div className={elementClasses} style={styles}>{children}</div>
+  )
+};
+
+export const Modal: React.FC<IProps> = ({
+  children,
+  classes,
+  styles,
+  trigger,
+  close,
 }) => {
 
   const [open, setOpen] = useState(false);
@@ -30,44 +53,43 @@ const Modal: React.FC<IProps> = ({
   }
 
   const renderAction = (): JSX.Element =>{
-    switch (typeLabel) {
+    switch (trigger.type) {
       case 'button':
         return (
-          <Button onClick={handleOpen}>
-            {openLabel}
+          <Button callback={handleOpen}>
+            {trigger.label}
           </Button>
         );
       case 'icon':
         return (
-          <img className="modal_icon" src={openLabel} onClick={handleOpen} /> 
+          <div className="modal_icon" onClick={handleOpen}>{(trigger.icon) ? trigger.icon : 'close'}</div>
         );
       case 'text':
         return (
           <div className="modal_text" onClick={handleOpen}>
-            {openLabel}
+            {trigger.label}
           </div>
         );
     }
   }
 
+  const elementClasses = classNames('modal', classes);
+
   return (
     <React.Fragment>
       <div className="modal_action">{renderAction()}</div>
       {(open) 
-        ? <div className="modal" style={{ animation: (!isClosing) ? "fadeInBg 0.35s" : "fadeOutBg 0.65s" }} >
+        ? <div className="modal_bg" style={{ animation: (!isClosing) ? "fadeInBg 0.35s" : "fadeOutBg 0.65s" }} >
             <section 
-              className="modal_main" 
-              style={{ animation: (!isClosing) ? "fadeIn 0.65s" : "fadeOut 0.65s" }} 
+              className={elementClasses} 
+              style={{ ...styles, animation: (!isClosing) ? "fadeIn 0.65s" : "fadeOut 0.65s" }} 
               onAnimationEnd={handleClose}
             >
               <div className="modal_container">
-                <div className="modal_header">
-                  <h6 className="modal_title">{title}</h6>
-                  <img className="modal_close" onClick={() => setIsClosing(true)} src={Close} />
+                <div className="modal_close" onClick={() => setIsClosing(true)}>
+                  {(close) ? close : 'close'}
                 </div>
-                <div className="modal_content">
-                  {children}
-                </div>
+                {children}
               </div>
             </section>
           </div>
@@ -75,5 +97,3 @@ const Modal: React.FC<IProps> = ({
     </React.Fragment>
   );
 }
-
-export default Modal;
