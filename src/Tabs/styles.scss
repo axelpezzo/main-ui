@@ -1,0 +1,18 @@
+.tabs_header{
+
+  .tabs{
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    
+    &::-webkit-scrollbar { 
+      display: none;
+    }
+
+    .tab{
+      display: inline-block;
+      cursor: pointer;
+      cursor: hand;
+    }
+  }
+}

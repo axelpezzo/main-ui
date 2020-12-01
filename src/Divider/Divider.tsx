@@ -10,8 +10,8 @@ const Divider: React.FC<IProps> = ({
 }) => {
 
   const elementClasses = classNames('divider', classes, {
-    'divider-hor': (orientation == 'horizontal' || !orientation) ? true : false,
-    'divider-ver': (orientation == 'vertical') ? true : false,
+    'divider-hor': (orientation === 'horizontal' || !orientation) ? true : false,
+    'divider-ver': (orientation === 'vertical') ? true : false,
   });
 
   return (

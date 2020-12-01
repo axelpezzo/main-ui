@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <title>FBB6B22E-1B3A-4793-9A96-612F61948F97@2x</title>
+  <defs>
+    <rect id="path-1" x="0" y="0" width="30" height="30"/>
+  </defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="matrix(-1, 0, 0, -1, 29.879425, 29.939697)">
+    <g id="Informazioni---open" transform="translate(-350.000000, -556.000000)">
+      <g id="icons/general/down_arrow" transform="translate(365.000000, 571.000000) scale(1, -1) translate(-365.000000, -571.000000) translate(350.000000, 556.000000)">
+        <mask id="mask-2" fill="white">
+          <rect x="0" y="0" width="30" height="30" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+        </mask>
+        <g id="Rectangle"/>
+        <g id="Path-Copy-3" mask="url(#mask-2)" fill="#EA0300">
+          <g transform="translate(7.800000, 10.800000)" id="Path-Copy">
+            <path d="M7.13969696,5.50294373 L12.2308658,0.411774901 C12.6994949,-0.0568542495 13.4592929,-0.0568542495 13.9279221,0.411774901 C14.3965512,0.880404051 14.3965512,1.64020203 13.9279221,2.10883118 L7.9882251,8.04852814 C7.51959595,8.51715729 6.75979797,8.51715729 6.29116882,8.04852814 L0.351471863,2.10883118 C-0.117157288,1.64020203 -0.117157288,0.880404051 0.351471863,0.411774901 C0.820101013,-0.0568542495 1.57989899,-0.0568542495 2.04852814,0.411774901 L7.13969696,5.50294373 Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -63,8 +63,7 @@ const Button: React.FC<IProps> = ({
       default:
         return (
           <React.Fragment>
-            {renderText()}
-            <div className="btn-icon btn-icon-right">
+            <div className="btn-icon">
               {icon?.src}
             </div>
           </React.Fragment>
@@ -83,7 +82,7 @@ const Button: React.FC<IProps> = ({
   const elementClasses = classNames('btn', classes, {
     'btn-disabled': disabled,
     'btn-pressed': isPressed,
-    'btn-hovered': !isPressed && isHovered
+    'btn-hovered': !disabled && !isPressed && isHovered
   });
 
   return (

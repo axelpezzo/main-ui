@@ -1,0 +1,32 @@
+.collapse{
+  
+  .collapse_header{
+    cursor: pointer;
+
+    .icon_toggle{
+      top: 10px;
+      right: 10px;
+      position: absolute;
+      transition: transform 0.25s ease-in-out;
+    }
+  }
+
+  .collapse_content{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+  }
+
+  &.open{
+    .collapse_header{
+      .icon_toggle{
+        transform: rotate(180deg);
+      }
+    }
+
+    .collapse_content{
+      max-height: 300px;
+      overflow: auto;
+    }
+  }
+}
