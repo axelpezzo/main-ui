@@ -4,10 +4,10 @@ import { IProps } from "./types";
 import "./styles.scss";
 
 const Button: React.FC<IProps> = ({
+  children,
   disabled,
   classes,
   styles,
-  value,
   link,
   icon,
   callback,
@@ -18,7 +18,7 @@ const Button: React.FC<IProps> = ({
 
   const renderText = () => {
     return (
-      (value) ? <span className="btn-label">{value}</span> : ''
+      <span className="btn-label">{children}</span>
     );
   }
 
@@ -75,7 +75,7 @@ const Button: React.FC<IProps> = ({
     if(icon) {
       return renderIcon();
     } else {
-      return  renderText();
+      return renderText();
     }
   }
 

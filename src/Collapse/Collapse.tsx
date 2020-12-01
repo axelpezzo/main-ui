@@ -42,8 +42,6 @@ export const Collapse: React.FC<TProps> = ({
 
   const [open, setOpen] = useState((openDefault) ? openDefault : false);
   const elementClasses = classNames('collapse', classes, { open });
-  console.log(open);
-  console.log(openDefault);
 
   return (
     <div className={elementClasses} style={styles}>

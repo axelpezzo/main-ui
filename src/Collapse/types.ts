@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 
 interface IProps {
+  children: React.ReactNode,
   classes?: string,
   styles?: CSSProperties, 
 }

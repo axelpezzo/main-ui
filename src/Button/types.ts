@@ -1,10 +1,10 @@
 import { CSSProperties } from "react";
 
 export interface IProps {
-  disabled?: boolean;
+  children: string,
+  disabled?: boolean,
   classes?: string,
   styles?: CSSProperties,
-  value?: string,
   link?: {
     href: string;
     target: "_blank" | "_self" | "_parent" | "_top"
