@@ -1,30 +1,61 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { IProps } from './types';
-
-import Arrow from "./arrow.svg";
+import { TProps, THeaderProps, TContentProps } from './types';
 
 import "./styles.scss";
 
-const Collapse: React.FC<IProps> = ({
+export const CollapseHeader: React.FC<THeaderProps> = ({ 
   children,
-  header,
+  classes,
+  styles,
+  open,
+  setOpen,
+  trigger,
+}) => {
+  const elementClasses = classNames('collapse_header', classes);
+  return (
+    <div className={elementClasses} style={styles} onClick={(setOpen) ? () => setOpen(!open) : () => console.log('setOpen is not defined')}>
+      {children}
+      <div className="icon_toggle">{(trigger) ? trigger : 'trigger'}</div>
+    </div>
+  )
+};
+
+export const CollapseContent: React.FC<TContentProps> = ({
+  children,
+  classes,
+  styles,
+}) => {
+  const elementClasses = classNames('collapse_content', classes);
+  return (
+    <div className={elementClasses} style={styles}>{children}</div>
+  )
+};
+
+export const Collapse: React.FC<TProps> = ({
+  children,  
+  classes,
+  styles,
+  trigger,
   openDefault,
 }) => {
 
   const [open, setOpen] = useState((openDefault) ? openDefault : false);
+  const elementClasses = classNames('collapse', classes, { open });
+  console.log(open);
+  console.log(openDefault);
 
   return (
-    <div className={classNames("collapse", { open })}>
-      <div className="collapse_header" onClick={() => setOpen(!open)}>
-        {header}
-        <img src={Arrow} className="icon_toggle" />
-      </div>
-      <div className="collapse_content">
-        {children}
-      </div>
+    <div className={elementClasses} style={styles}>
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          if(child.type === CollapseHeader){
+            return React.cloneElement(child, { open, setOpen, trigger });
+          } else {
+            return React.cloneElement(child);
+          }
+        }
+      })}
     </div>
   );
 }
-
-export default Collapse;
